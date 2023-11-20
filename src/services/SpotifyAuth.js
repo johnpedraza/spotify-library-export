@@ -6,8 +6,10 @@ const redirectUri = process.env.REACT_APP_REDIRECT_URI
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
 const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID
 
+export const scopes = ['user-library-read']; // Include the necessary scopes
+
 // Redirect the user to the Spotify authorization page
-export const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&show_dialog=true`;
+export const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
 
 // Parse the token from the URL after successful authorization
 export const getTokenFromUrl = () => {

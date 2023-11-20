@@ -25,7 +25,6 @@ export const getTokenFromUrl = () => {
 // Set the token to the Spotify API instance
 export const setAccessToken = () => {
   const token = getTokenFromUrl();
-  console.log(token)
   if (token.access_token) {
     spotifyApi.setAccessToken(token.access_token);
     return true;
